@@ -8,3 +8,5 @@ There are two folders in this repository:
 
 ### (2) data_analysis
 -- Allows researcher to download the data from the MySQL database and analyze it.<br/>
+
+The slides which contain the full instructions can be found [here](https://docs.google.com/presentation/d/1R_QtsInGA5OibPsrvSy8zOaC6Y2ZwsQDyo1i0fNMHSs/edit?usp=sharing).
