@@ -1,7 +1,8 @@
 ## Intro
-This is a template for online experiments at both <br>
-(1) Consciousness and Metacognition Lab at UCLA, and <br>
-(2) Cognition and Neural Computation Lab at UCR. <br> 
+This is a template for online experiments at both: <br>
+  (1) Consciousness and Metacognition Lab at UCLA, and <br>
+  (2) Cognition and Neural Computation Lab at UCR. <br> 
+<br> 
 This bypasses the use of PsiTurk and interfaces with mTurk directly.<br>
 
 ## Credit
