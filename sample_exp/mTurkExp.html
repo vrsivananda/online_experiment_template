@@ -28,16 +28,12 @@
         var launchOnline = 0;	// 0: Nothing.		1: Save to database, consent form, completion code generation, dummy variables created for all 3 IDs
         var tableName = 'sample_exp_no_psiturk'; //Name of the table in the database
         
-        if(launchOnline){
         
-            //Get the info from mTurk
-            var turkInfo = jsPsych.turk.turkInfo();
-            var workerId = turkInfo.workerId;
-            var assignmentId = turkInfo.assignmentId;
-            var hitId = turkInfo.hitId;
-            
-        }
-        else{
+        //Get the info from mTurk
+        var turkInfo = jsPsych.turk.turkInfo();
+        
+        //If we're not on mTurk, we create our own values
+        if(turkInfo.outsideTurk === true){
             
             // Use the timestamp as a unique id (specific to the second)
             var timestamp = Math.floor(Date.now()/1000);
@@ -45,14 +41,21 @@
             workerId = "workerId_" + timestamp;
             assignmentId = "assignmentId_" + timestamp;
             hitId = "hitId_" + timestamp;
-        
-        
-            //Print out to console to check
-            console.log("workerId: " + workerId);
-            console.log("assignmentId: " + assignmentId);
-            console.log("hitId: " + hitId);
             
         }
+        //Else we're on mTurk and we get the values
+        else{
+          
+            var workerId = turkInfo.workerId;
+            var assignmentId = turkInfo.assignmentId;
+            var hitId = turkInfo.hitId;
+        
+        }
+        
+        //Print out to console to check
+        console.log("workerId: " + workerId);
+        console.log("assignmentId: " + assignmentId);
+        console.log("hitId: " + hitId);
     	
         
         //------------------- Your code below this line -------------------
