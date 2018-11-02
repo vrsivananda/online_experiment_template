@@ -72,9 +72,9 @@ for i = 1:numberOfSubjects
     savingFilePath = [desiredFolderPath '/' savingFileName];
     save(savingFilePath, 'data');
     
-    %----------------%
-    % DATA STRUCTURE %
-    %----------------% 
+    %-----------------%
+    % STRUCTURE ARRAY %
+    %-----------------% 
     
     dataFormat = 'structure';
     

@@ -23,8 +23,8 @@ for i = 1:numberOfSubjects
     
     % Import the data
     Alldata = load([pwd '/Data/structure_data_' subjectId '.mat']);
-    % Data structure that contains all the data for this subject
-    dataStructure = Alldata.data;
+    % Structure Array that contains all the data for this subject
+    sa = Alldata.data;
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%% Your data extraction here %%%%%%%%
