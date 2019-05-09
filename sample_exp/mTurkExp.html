@@ -7,25 +7,25 @@
     -->
     <title>mTurk Short Survey</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="jspsych-6.0.1/jspsych.js"></script>
-    <link href="jspsych-6.0.1/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+    <script src="jspsych-6.0.5/jspsych.js"></script>
+    <link href="jspsych-6.0.5/css/jspsych.css" rel="stylesheet" type="text/css"></link>
     <!--Your jsPsych plugins below this line-->
     
-    <script src="jspsych-6.0.1/plugins/jspsych-survey-multi-choice.js"></script>
+    <script src="jspsych-6.0.5/plugins/jspsych-survey-multi-choice.js"></script>
     
     <!--Your jsPsych plugins above this line-->
-    <script src="jspsych-6.0.1/plugins/jspsych-external-html.js"></script>
-    <script src="jspsych-6.0.1/plugins/jspsych-html-keyboard-response.js"></script>
-    <script src="jspsych-6.0.1/plugins/jspsych-html-button-response.js"></script>
+    <script src="jspsych-6.0.5/plugins/jspsych-external-html.js"></script>
+    <script src="jspsych-6.0.5/plugins/jspsych-html-keyboard-response.js"></script>
+    <script src="jspsych-6.0.5/plugins/jspsych-html-button-response.js"></script>
 </head>
 <body>
 </body>
 <script>
     
         //Data switches
-        var saveLocally = 1;	// 0: Nothing.      1: Download CSV file
+        var saveLocally = 0;	// 0: Nothing.      1: Download CSV file
         var displayData = 0;  	// 0: Nothing.      1: Display data on browser
-        var launchOnline = 0;	// 0: Nothing.		1: Save to database, consent form, completion code generation, dummy variables created for all 3 IDs
+        var launchOnline = 1;	// 0: Nothing.		1: Save to database, consent form, completion code generation, dummy variables created for all 3 IDs
         var tableName = 'sample_exp_no_psiturk'; //Name of the table in the database
         
         
@@ -33,7 +33,7 @@
         var turkInfo = jsPsych.turk.turkInfo();
         
         //If we're not on mTurk, we create our own values
-        if(turkInfo.outsideTurk === true){
+        if(turkInfo.workerId == '' && turkInfo.assignmentId == '' && turkInfo.hitId == ''){
             
             // Use the timestamp as a unique id (specific to the second)
             var timestamp = Math.floor(Date.now()/1000);
@@ -57,6 +57,7 @@
         console.log("assignmentId: " + assignmentId);
         console.log("hitId: " + hitId);
     	
+        var consentForm = "consentForm.html"; //or "consentForm_CNC.html" if you're launching from UCR CNC lab
         
         //------------------- Your code below this line -------------------
         
@@ -123,7 +124,7 @@
 
 	        return {
 	          type:'external-html',
-	          url: "consentForm.html",
+	          url: consentForm,
 	          cont_btn: "startExperimentButton",
 	          check_fn: check_consent
 	        };
