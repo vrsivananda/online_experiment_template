@@ -2,7 +2,7 @@
 <html>
 <head>
     <!--
-       Most of the functions below are written by Jason Carpenter.
+       Some of the functions below are written by Jason Carpenter.
        GitHub: https://github.com/jmcarpenter2
     -->
     <title>mTurk Short Survey</title>
@@ -33,7 +33,7 @@
         var turkInfo = jsPsych.turk.turkInfo();
 
         //If we're not on mTurk, we create our own values
-        if(turkInfo.workerId == '' && turkInfo.assignmentId == '' && turkInfo.hitId == ''){
+        if(turkInfo.workerId == ''){
 
             // Use the timestamp as a unique id (specific to the second)
             var timestamp = Math.floor(Date.now()/1000);
